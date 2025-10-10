@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameHub - Navigation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Micro+5&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <img src="img/iconos_barra_header/icono_GameHub.png" alt="GameHub Logo" class="logo">
+            <h1 class="site-title">GameHub</h1>
+        </div>
+
+        <div class="header-center">
+            <div class="search-bar">
+                <input type="text" placeholder="¿A qué jugamos hoy?" class="search-input">
+                <button class="search-button">
+                    <img src="img/iconos_barra_header/lupa.png" alt="Buscar" class="icon-img">
+                </button>
+            </div>
+        </div>
+
+        <div class="header-right">
+            <button class="icon-button cart-button">
+                <img src="img/iconos_barra_header/carrito-de-compras.png" alt="Carrito" class="icon-img">
+            </button>
+            <button class="icon-button profile-button" id="profileButton">
+                <img src="img/iconos_barra_header/usuario.png" alt="Perfil" class="icon-img">
+            </button>
+            <button class="icon-button hamburger-button" id="hamburgerButton">
+                <img src="img/iconos_barra_header/menu.png" alt="Menú" class="icon-img">
+            </button>
+        </div>
+    </header>
+
+    <!-- Profile Dropdown -->
+    <div class="dropdown profile-dropdown" id="profileDropdown">
+        <div class="profile-header">
+            <img src="img/iconos_barra_header/avatar.png" alt="Avatar" class="profile-avatar">
+            <div class="profile-info">
+                <p class="profile-nickname">NICKNAME</p>
+            </div>
+        </div>
+        <ul class="dropdown-menu">
+            <li><a href="#" class="dropdown-item">Configuraciones de la cuenta</a></li>
+            <li><a href="#" class="dropdown-item">Editar Nickname</a></li>
+            <li><a href="#" class="dropdown-item">Editar avatar</a></li>
+            <li><a href="#" class="dropdown-item">Correo electrónico</a></li>
+            <li><a href="#" class="dropdown-item">Contraseña</a></li>
+            <li><a href="#" class="dropdown-item">Idioma</a></li>
+        </ul>
+    </div>
+
+    <!-- Hamburger Dropdown -->
+    <div class="dropdown hamburger-dropdown" id="hamburgerDropdown">
+        <ul class="dropdown-menu">
+            <li><a href="#" class="dropdown-item">
+                LogOut
+                <img src="img/iconos_menu_hamb/log-out.png" alt="LogOut" class="menu-icon">
+            </a></li>
+            <!-- Mobile only categories -->
+            <li class="mobile-only"><a href="#" class="dropdown-item">
+                Home
+                <img src="img/iconos_nav_bar/casa-home.png" alt="Home" class="menu-icon">
+            </a></li>
+            <li class="mobile-only"><a href="#" class="dropdown-item">
+                Mis Juegos
+                <img src="img/iconos_nav_bar/corazon-favs.png" alt="Multijugador" class="menu-icon">
+            </a></li>
+            <li class="mobile-only"><a href="#" class="dropdown-item">
+                Nuevos
+                <img src="img/iconos_nav_bar/estrellas-new.png" alt="2 jugadores" class="menu-icon">
+            </a></li>
+            <li class="mobile-only"><a href="#" class="dropdown-item">
+                Multijugador
+                <img src="img/iconos_nav_bar/joystick-multijugador.png" alt="Clásicos" class="menu-icon">
+            </a></li>
+            <li class="mobile-only"><a href="#" class="dropdown-item">
+                2 Jugadores
+                <img src="img/iconos_nav_bar/controles-2-players.png" alt="De mesa" class="menu-icon">
+            </a></li>
+            <li class="mobile-only"><a href="#" class="dropdown-item">
+                Acción
+                <img src="img/iconos_nav_bar/espadas-accion.png" alt="Acción" class="menu-icon">
+            </a></li>
+            <li class="mobile-only"><a href="#" class="dropdown-item">
+                Carreras
+                <img src="img/iconos_nav_bar/bandera-carreras.png" alt="Belleza" class="menu-icon">
+            </a></li>
+            <li class="mobile-only"><a href="#" class="dropdown-item">
+                De Mesa
+                <img src="img/iconos_nav_bar/pikas-de-mesa.png" alt="Cocina" class="menu-icon">
+            </a></li>
+            <li class="mobile-only"><a href="#" class="dropdown-item">
+                Terror
+                <img src="img/iconos_nav_bar/fantasma-terror.png" alt="Deportes" class="menu-icon">
+            </a></li>
+            <li class="mobile-only"><a href="#" class="dropdown-item">
+                Deportes
+                <img src="img/iconos_nav_bar/pelotas-deportes.png" alt="Terror" class="menu-icon">
+            </a></li>
+               <li class="mobile-only"><a href="#" class="dropdown-item">
+                Clásicos
+                <img src="img/iconos_nav_bar/pacman-clasicos.png" alt="Cocina" class="menu-icon">
+            </a></li>
+            <li class="mobile-only"><a href="#" class="dropdown-item">
+                Cocina
+                <img src="img/iconos_nav_bar/gorro-cocina.png" alt="Deportes" class="menu-icon">
+            </a></li>
+            <li class="mobile-only"><a href="#" class="dropdown-item">
+                Belleza
+                <img src="img/iconos_nav_bar/maquillaje.png" alt="Terror" class="menu-icon">
+            </a></li>
+            <!-- Desktop only social links -->
+            <li class="desktop-only"><a href="#" class="dropdown-item">
+                Instagram
+                <img src="img/iconos_menu_hamb/instagram.png" alt="Instagram" class="menu-icon">
+            </a></li>
+            <li class="desktop-only"><a href="#" class="dropdown-item">
+                Facebook
+                <img src="img/iconos_menu_hamb/facebook.png" alt="Facebook" class="menu-icon">             
+            </a></li>
+            <li class="desktop-only"><a href="#" class="dropdown-item">
+                Twitter
+                <img src="img/iconos_menu_hamb/twitter.png" alt="Twitter" class="menu-icon">
+            </a></li>
+            <li class="desktop-only"><a href="#" class="dropdown-item">
+                Youtube
+                <img src="img/iconos_menu_hamb/youtube.png" alt="Twitter" class="menu-icon">               
+            </a></li>
+        </ul>
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <nav class="sidebar-nav">
+            <a href="#" class="sidebar-item">
+                <img src="img/iconos_nav_bar/casa-home.png" alt="Home" class="sidebar-icon">
+                <span class="sidebar-text">Home</span>
+            </a>
+            <a href="#" class="sidebar-item">
+                <img src="img/iconos_nav_bar/corazon-favs.png" alt="Multijugador" class="sidebar-icon">
+                <span class="sidebar-text">Mis Juegos</span>
+            </a>
+            <a href="#" class="sidebar-item">
+                <img src="img/iconos_nav_bar/estrellas-new.png" alt="2 jugadores" class="sidebar-icon">
+                <span class="sidebar-text">Nuevos</span>
+            </a>
+            <a href="#" class="sidebar-item">
+                <img src="img/iconos_nav_bar/joystick-multijugador.png" alt="Clásicos" class="sidebar-icon">
+                <span class="sidebar-text">Multijugador</span>
+            </a>
+            <a href="#" class="sidebar-item">
+                <img src="img/iconos_nav_bar/controles-2-players.png" alt="De mesa" class="sidebar-icon">
+                <span class="sidebar-text">2 Jugadores</span>
+            </a>
+            <a href="#" class="sidebar-item">
+                <img src="img/iconos_nav_bar/espadas-accion.png" alt="Acción" class="sidebar-icon">
+                <span class="sidebar-text">Acción</span>
+            </a>
+            <a href="#" class="sidebar-item">
+                <img src="img/iconos_nav_bar/bandera-carreras.png" alt="Belleza" class="sidebar-icon">
+                <span class="sidebar-text">Carreras</span>
+            </a>
+            <a href="#" class="sidebar-item">
+                <img src="img/iconos_nav_bar/pikas-de-mesa.png" alt="Cocina" class="sidebar-icon">
+                <span class="sidebar-text">De mesa</span>
+            </a>
+            <a href="#" class="sidebar-item">
+                <img src="img/iconos_nav_bar/fantasma-terror.png" alt="Deportes" class="sidebar-icon">
+                <span class="sidebar-text">Terror</span>
+            </a>
+            <a href="#" class="sidebar-item">
+                <img src="img/iconos_nav_bar/pelotas-deportes.png" alt="Terror" class="sidebar-icon">
+                <span class="sidebar-text">Deportes</span>
+            </a>
+            <a href="#" class="sidebar-item">
+                <img src="img/iconos_nav_bar/pacman-clasicos.png" alt="Cocina" class="sidebar-icon">
+                <span class="sidebar-text">Clasicos</span>
+            </a>
+            <a href="#" class="sidebar-item">
+                <img src="img/iconos_nav_bar/gorro-cocina.png" alt="Deportes" class="sidebar-icon">
+                <span class="sidebar-text">Cocina</span>
+            </a>
+            <a href="#" class="sidebar-item">
+                <img src="img/iconos_nav_bar/labial-belleza.png" alt="Terror" class="sidebar-icon">
+                <span class="sidebar-text">Belleza</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      
+    </main>
+
+    <script src="main.js"></script>
+</body>
+</html>
