@@ -1,27 +1,31 @@
 /* ========================================================== */
-/* BLOCKA.CSS - ESTILOS DEDICADOS A LA INTERFAZ CENTRAL DEL JUEGO */
+/* BLOCKA.CSS - ESTILOS FINALES Y CONSOLIDADOS */
+/* DISEÑO: Tarjeta Fija (card-footer DENTRO de #contenedor-juego) */
 /* ========================================================== */
 
 /* ------------------------------------------- */
 /* 0. VARIABLES Y UTILIDADES                   */
 /* ------------------------------------------- */
 
-/* Duplicamos variables clave para asegurar la consistencia */
 :root {
-    --color-bg-dark: #102641;
-    --color-card-bg: #1F375A;
+    --color-bg-dark: #102641; /* Color de fondo de la página */
+    --color-card-bg: #1F375A; /* Color de fondo de la tarjeta principal */
     --color-text-primary: #FFFFFF;
     --color-text-secondary: #AAAAAA;
     --color-primary-pink: #FA62A5;
     --color-pink-hover: #FA328A;
     --color-success-green: #69B469;
     --color-success-green-hover: #5AA15A;
+    
+    /* Variables para el estado "Agregado" (Basado en tu CSS) */
+    --color-added-green: #69B469; 
+    --color-added-green-hover: #5AA15A; 
+    
     --font-base: 'Outfit', sans-serif;
     --font-heading: 'Montserrat', sans-serif;
     --transicion-rapida: all 0.3s ease-in-out;
 }
 
-/* 🔥 REGLA CLAVE: Oculta las pantallas que no deben verse al inicio */
 .oculto {
     display: none !important;
 }
@@ -30,21 +34,26 @@
 /* 1. CONTENEDOR PRINCIPAL Y BASE DEL JUEGO    */
 /* ------------------------------------------- */
 
-/* 1. CONTENEDOR PRINCIPAL Y BASE DEL JUEGO */
 #contenedor-juego {
     background: var(--color-card-bg);
-    border-radius: 15px;
+    /* 🔥 AJUSTE: Bordes redondeados SOLO ARRIBA para pegarse al footer */
+    border-radius: 15px 15px 0 0; 
     padding: 30px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
     
-    /* 🔥 REPLICAR ANCHO MÁXIMO DEL DISEÑO ANTIGUO */
-    max-width: 800px; /* Limita el ancho en escritorio */
-    margin-left: auto; /* Centra el contenedor en la pantalla */
-    margin-right: auto; /* Centra el contenedor en la pantalla */
-    
-    width: 100%; 
+    /* CLAVE 1: Posición Relativa para que el footer se fije dentro */
     position: relative; 
-    margin-bottom: 40px; 
+    
+    /* CLAVE 2: Padding extra para que el contenido no quede tapado por el footer fijo (aprox. 90px de alto) */
+    padding-bottom: 90px; 
+    
+    /* Centrado y ancho */
+    max-width: 800px; 
+    margin-left: auto; 
+    margin-right: auto; 
+    margin-bottom: 20px; 
+    width: 100%; 
+    
     font-family: var(--font-base);
     color: var(--color-text-primary);
     box-sizing: border-box; 
@@ -126,16 +135,19 @@
     animation: pulse 1.5s infinite alternate;
 }
 
+/* ESTILO PARA EL BOTÓN SECUNDARIO (Instrucciones) */
 .boton-secundario {
-    background: var(--color-bg-dark);
-    color: white;
-    border: 1px solid var(--color-text-secondary);
-    padding: 10px 20px; /* Menos padding para controles de juego */
+    background: var(--color-bg-dark); 
+    color: var(--color-primary-pink);
+    border: 2px solid var(--color-primary-pink);
+    padding: 10px 20px; 
     font-size: 1em;
+    font-weight: 600;
 }
 
 .boton-secundario:hover {
-    background: var(--color-card-bg);
+    background: var(--color-primary-pink);
+    color: white;
     border-color: var(--color-primary-pink);
     transform: translateY(-2px);
 }
@@ -152,6 +164,14 @@
 .boton-ayuda:hover {
     background-color: var(--color-success-green-hover);
     transform: scale(1.05);
+}
+
+.boton-ayuda.deshabilitado {
+    background: var(--color-bg-dark); 
+    color: var(--color-text-secondary);
+    cursor: not-allowed;
+    opacity: 0.7;
+    transform: none;
 }
 
 .botones-menu {
@@ -206,15 +226,14 @@
     color: var(--color-success-green);
 }
 
-/* 🔥 REGLA PARA CENTRAR EL BOTÓN "VOLVER AL MENÚ" EN EL SELECTOR DE NIVEL */
 #btn-volver-menu-selector {
-    display: block; /* Necesita ser bloque para usar margin auto */
-    margin: 30px auto 0; /* Centra horizontalmente con margen superior */
-    max-width: 250px; /* Le da un ancho fijo para que el centrado sea efectivo */
+    display: block; 
+    margin: 30px auto 0; 
+    max-width: 250px; 
 }
 
 /* ------------------------------------------- */
-/* 5. PANTALLA DE JUEGO Y GRILLA (GRANDEZA)    */
+/* 5. PANTALLA DE JUEGO Y GRILLA               */
 /* ------------------------------------------- */
 
 #pantalla-juego {
@@ -250,67 +269,44 @@
     flex-wrap: wrap;
 }
 
-/* GRID DE PIEZAS (GRANDE) */
-/*  5. PANTALLA DE JUEGO Y GRILLA */
 #grilla-blocka {
     display: grid;
-    
-    /* 🔥 REPLICAR GAP Y PADDING DEL DISEÑO ANTIGUO */
+    grid-template-columns: repeat(2, 1fr);
     gap: 5px; 
-
-    /* Usar el max-width del diseño antiguo */
+    padding: 10px; 
     max-width: 600px; 
-    
-    /* Puedes mantener 95vmin si quieres que se vea más grande en móviles */
     width: 95vmin; 
-    
     margin: 0 auto 30px;
     background: var(--color-bg-dark);
-    
-    /* Replicar padding del diseño antiguo */
-    padding: 10px; 
-    
     border-radius: 10px;
-    grid-template-columns: repeat(2, 1fr);
 }
 
-/* 🔥 2. MEDIA QUERY: AJUSTE PARA PANTALLAS PEQUEÑAS (Móvil/Tablet) */
-/* Aplicar un gap menor cuando el ancho de la ventana es de 600px o menos */
-@media (max-width: 600px) {
-    #grilla-blocka {
-        gap: 2px; /* Piezas más juntas en pantallas compactas */
-        padding: 5px; /* Reducir también el padding si es necesario */
-    }
-}
-
-/* MODIFICAR ESTO en la Sección 5 de blocka.css */
 .pieza-blocka {
     width: 100%;
     aspect-ratio: 1;
     cursor: pointer;
-    
-    /* 🔥 TRANSICIÓN SUAVE Y EFECTO DE ROTACIÓN */
     transition: transform 0.3s ease-out, border-color var(--transicion-rapida); 
-    
-    /* Nota: Usando 'transform 0.3s' en lugar de 0.4s para que coincida con tu archivo previo */
-    border: 2px solid var(--color-bg-dark); /* Usar el color de fondo de la grilla */
+    border: 2px solid var(--color-bg-dark); 
     position: relative;
     overflow: hidden;
     line-height: 0;
 }
 
-/* 🔥 EFECTO AL PASAR EL RATÓN: Borde Rosa (Coincide con la variable --color-primary-pink) */
 .pieza-blocka:hover {
     border-color: var(--color-primary-pink); 
 }
 
-/* NUEVA REGLA: Pieza-fija (Sección 5) */
 .pieza-blocka.pieza-fija {
-    /* Usar el color verde de éxito (similar a #4ecca3 de tu archivo) */
     border-color: var(--color-success-green); 
     border-width: 3px;
     cursor: not-allowed;
     opacity: 0.9;
+}
+
+.pieza-blocka canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
 }
 
 /* ------------------------------------------- */
@@ -336,8 +332,9 @@
 }
 
 /* ------------------------------------------- */
-/* 7. ANIMACIONES (PULSO PARA BOTÓN JUGAR)     */
+/* 7. ANIMACIONES Y KEYFRAMES                  */
 /* ------------------------------------------- */
+
 @keyframes pulse {
   0%, 100% {
     transform: scale(1);
@@ -351,38 +348,132 @@
   }
 }
 
-/* ------------------------------------------- */
-/* 7. ANIMACIÓN DE VICTORIA (COMPLETADO)       */
-/* ------------------------------------------- */
+@keyframes brilloFavorito {
+    0% {
+        box-shadow: 0 0 5px var(--color-added-green), 0 0 0px rgba(255, 255, 255, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 15px var(--color-added-green), 0 0 5px rgba(255, 255, 255, 0.7);
+    }
+}
 
-/* NUEVA SECCIÓN: Estilos para el mensaje de victoria in-game */
 #mensaje-completado {
     position: absolute;
     top: 50%;
     left: 50%;
-    /* Posición inicial: más pequeño y movido */
     transform: translate(-50%, -50%) scale(0.5); 
-    
-    color: var(--color-success-green); /* Color del texto (verde) */
+    color: var(--color-success-green); 
     font-size: 3em;
     font-weight: bold;
     font-family: var(--font-heading);
-
-    /* Efecto de resplandor verde (coincide con tu diseño original) */
     text-shadow: 0 0 20px var(--color-success-green), 0 0 40px var(--color-success-green); 
-    
     opacity: 0;
-    /* Transición que controla la animación de entrada/salida */
     transition: all 0.8s ease-out; 
-    
-    pointer-events: none; /* Asegura que no bloquee los clics */
+    pointer-events: none; 
     z-index: 100;
 }
 
-/* Estado FINAL de la animación */
 #mensaje-completado.mostrar {
     opacity: 1;
-    /* Estado final: centrado y ligeramente más grande */
     transform: translate(-50%, -50%) scale(1.1); 
+}
+
+/* ------------------------------------------- */
+/* 8. PIE DE PÁGINA Y BOTÓN FAVORITOS          */
+/* ------------------------------------------- */
+
+.card-footer {
+    /* CLAVE 3: Posicionamiento absoluto para fijarlo al fondo de #contenedor-juego */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%; 
+    
+    /* 🔥 AJUSTE CLAVE: Usar el color de fondo de la página para que se "funda" */
+    background: var(--color-bg-dark); 
+    
+    /* 🔥 AJUSTE CLAVE: Eliminar bordes redondeados (los maneja el contenedor principal) */
+    border-radius: 0; 
+    
+    padding: 20px 30px; 
+    
+    margin: 0; 
+    max-width: none; 
+    box-shadow: none; 
+    
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.card-footer h2 {
+    font-family: var(--font-heading); 
+    font-weight: 800;
+    font-size: 1.5rem; 
+    color: var(--color-text-primary);
+    margin: 0; 
+    flex-grow: 1; 
+}
+
+
+/* ========================================================== */
+/* ESTILOS BASE: BOTÓN AGREGAR A MIS JUEGOS (.btn-add-game) */
+/* ========================================================== */
+.btn-add-game {
+    font-family: var(--font-base); 
+    font-weight: 600;
+    
+    margin: 0; 
+    border-radius: 8px; 
+    padding: 8px 18px; 
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: var(--color-primary-pink); 
+    color: #ffffff; 
+    border: none;
+  
+    box-shadow: 0 0 0 transparent; 
+    animation: none !important;
+    
+    transition: 
+        transform 0.3s ease, 
+        box-shadow 0.3s ease, 
+        background-color 0.4s ease;
+    
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; 
+}
+
+.btn-add-game i {
+    color: #ffffff;
+    font-size: 1.1rem;
+}
+
+.btn-add-game:not(.added):hover { 
+    transform: translateY(-3px) scale(1.02); 
+    background-color: var(--color-pink-hover);
+    color: #A70046; 
+}
+
+.btn-add-game:not(.added):hover i {
+    color:  #A70046;
+    transition: color 0.3s ease;
+}
+
+.btn-add-game.added {
+    background-color: var(--color-added-green);
+    color: #ffffff; 
+    animation: brilloFavorito 1.5s infinite alternate; 
+    box-shadow: 0 0 10px var(--color-added-green);
+}
+
+.btn-add-game.added:hover {
+    background-color: var(--color-added-green-hover);
+    transform: translateY(-3px) scale(1.02); 
+    color: #ffffff;
+    box-shadow: 0 0 15px var(--color-added-green);
 }
 
