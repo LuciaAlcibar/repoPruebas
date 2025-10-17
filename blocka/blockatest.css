@@ -11,7 +11,7 @@
     --color-bg-dark: #102641; /* Color de fondo de la página */
     --color-card-bg: #1F375A; /* Color de fondo de la tarjeta principal */
     --color-text-primary: #FFFFFF;
-    --color-text-secondary: #AAAAAA;
+    --color-text-secondary: #c6c3c3;
     --color-primary-pink: #FA62A5;
     --color-pink-hover: #FA328A;
     --color-success-green: #69B469;
@@ -36,28 +36,28 @@
 
 #contenedor-juego {
     background: var(--color-card-bg);
-    /* 🔥 AJUSTE: Bordes redondeados SOLO ARRIBA para pegarse al footer */
     border-radius: 15px 15px 0 0; 
-    padding: 30px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-    
-    /* CLAVE 1: Posición Relativa para que el footer se fije dentro */
     position: relative; 
-    
-    /* CLAVE 2: Padding extra para que el contenido no quede tapado por el footer fijo (aprox. 90px de alto) */
-    padding-bottom: 90px; 
-    
-    /* Centrado y ancho */
-    max-width: 800px; 
-    margin-left: auto; 
-    margin-right: auto; 
-    margin-bottom: 20px; 
-    width: 100%; 
-    
     font-family: var(--font-base);
     color: var(--color-text-primary);
     box-sizing: border-box; 
+
+    /* 🔒 TAMAÑO FIJO */
+    width: 900px;      /* ancho fijo */
+    height: 550px;     /* alto fijo */
+
+    /* CENTRADO */
+    margin: 0 auto 20px;
+
+    /* ESPACIADO INTERNO */
+    padding: 30px;
+    padding-bottom: 90px; 
+
+    overflow: hidden; /* oculta lo que se salga del área */
+
 }
+
 
 /* ------------------------------------------- */
 /* 2. ESTILOS DE MENÚS Y TÍTULOS               */
@@ -69,9 +69,9 @@
 
 #menu-principal h1 {
     color: var(--color-primary-pink);
-    font-size: 3em;
+    font-size: 4.5em;
     margin-bottom: 20px;
-    font-family: var(--font-heading);
+    font-family: 'Freckle Face', sans-serif;
 }
 
 #menu-principal p {
@@ -83,16 +83,15 @@
 #instrucciones h2,
 #selector-nivel h2 {
     color: var(--color-primary-pink);
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     text-align: center;
     font-family: var(--font-heading);
     font-size: 1.8em;
 }
-
 #instrucciones ul {
     list-style-position: inside;
-    margin: 20px 0 30px;
-    line-height: 2;
+    margin: 10px 0 30px;
+    line-height: 1.5;
     text-align: left;
     max-width: 600px;
     margin-left: auto;
@@ -133,6 +132,7 @@
 
 .boton-principal-jugar {
     animation: pulse 1.5s infinite alternate;
+    width: 300px;
 }
 
 /* ESTILO PARA EL BOTÓN SECUNDARIO (Instrucciones) */
@@ -177,10 +177,11 @@
 .botones-menu {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 25px;
     max-width: 300px;
     margin: 0 auto;
 }
+
 
 /* ------------------------------------------- */
 /* 4. SELECTOR DE NIVEL Y TARJETAS             */
@@ -188,8 +189,9 @@
 
 .grilla-niveles {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    justify-items: center;
+    margin-top: 90px;
     margin-bottom: 30px;
 }
 
@@ -201,6 +203,7 @@
     border: 3px solid transparent;
     text-align: left;
     transition: var(--transicion-rapida);
+    width: 200px;
 }
 
 .tarjeta-nivel:hover {
@@ -228,7 +231,7 @@
 
 #btn-volver-menu-selector {
     display: block; 
-    margin: 30px auto 0; 
+    margin: 60px auto 0; 
     max-width: 250px; 
 }
 
@@ -244,7 +247,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     flex-wrap: wrap;
     gap: 15px;
 }
@@ -256,7 +259,7 @@
 }
 
 #temporizador {
-    font-size: 2em;
+    font-size: 1.5em;
     color: var(--color-success-green);
     font-weight: 800;
     font-family: var(--font-heading);
@@ -272,10 +275,10 @@
 #grilla-blocka {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 5px; 
+    gap: 3px; 
     padding: 10px; 
-    max-width: 600px; 
-    width: 95vmin; 
+    max-width: 350px; 
+    width: 70vmin; 
     margin: 0 auto 30px;
     background: var(--color-bg-dark);
     border-radius: 10px;
@@ -312,12 +315,20 @@
 /* ------------------------------------------- */
 /* 6. PANTALLA DE VICTORIA                     */
 /* ------------------------------------------- */
-
+#pantalla-victoria {
+    position: relative;      
+    top: 50%;                /* lo lleva al medio vertical */
+    left: 50%;               /* lo lleva al medio horizontal */
+    transform: translate(-50%, -50%); /* ajusta el centro exacto */
+    width: 100%;             /* opcional, depende de cómo quieras que ocupe el ancho */
+    max-width: 750px;        /* opcional: limita ancho */
+    height: 400px;
+}
 #pantalla-victoria h2 {
     color: var(--color-success-green);
     font-size: 2.5em;
-    margin-bottom: 20px;
-    font-family: var(--font-heading);
+    margin-bottom: 5px;
+    font-family: 'Poppins',sans-serif;
 }
 
 #pantalla-victoria p {
@@ -328,7 +339,15 @@
 .tiempo-victoria {
     color: var(--color-primary-pink);
     font-weight: 800;
-    font-size: 1.5em;
+    font-size: 1.4em;
+}
+#pantalla-victoria .botones-menu{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 280px;
+    margin: 0 auto;
+    margin-top: 50px;
 }
 
 /* ------------------------------------------- */
@@ -361,22 +380,67 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(0.5); 
-    color: var(--color-success-green); 
-    font-size: 3em;
+    transform: translate(-50%, -50%) scale(0.5);
+    width: 100px;
+    height: 100px;
+    background-color: var(--color-success-green, #37df7d); /* verde por defecto */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white; /* color del icono */
+    font-size: 60px;
     font-weight: bold;
-    font-family: var(--font-heading);
-    text-shadow: 0 0 20px var(--color-success-green), 0 0 40px var(--color-success-green); 
+    box-shadow: 0 0 25px var(--color-success-green, #48eb8c);
     opacity: 0;
-    transition: all 0.8s ease-out; 
-    pointer-events: none; 
+    transition: all 0.8s ease-out;
+    pointer-events: none;
     z-index: 100;
 }
 
+/* Estado visible */
 #mensaje-completado.mostrar {
     opacity: 1;
-    transform: translate(-50%, -50%) scale(1.1); 
+    transform: translate(-50%, -50%) scale(1.1);
 }
+
+/* =============================================== */
+/* CENTRADO PERFECTO DE CONTENIDO DENTRO DEL JUEGO */
+/* =============================================== */
+
+/* Aplica a cualquier pantalla dentro del contenedor */
+#menu-principal,
+#instrucciones{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;   /* centra verticalmente */
+    align-items: center;       /* centra horizontalmente */
+    height: 100%;              /* ocupa toda la altura del contenedor */
+    text-align: center;        /* centra el texto también */
+    box-sizing: border-box;
+}
+
+#menu-principal{
+    background-image: url('./img/blocka/fondoblocka.png');
+    background-repeat: repeat;
+    background-size: 40%; 
+}
+/* ------------------------------------------- */
+/* CENTRADO PANTALLA SELECTOR NIVEL            */
+/* ------------------------------------------- */
+#selector-nivel {
+    position: relative;      
+    top: 50%;                /* lo lleva al medio vertical */
+    left: 50%;               /* lo lleva al medio horizontal */
+    transform: translate(-50%, -50%); /* ajusta el centro exacto */
+    width: 100%;             /* opcional, depende de cómo quieras que ocupe el ancho */
+    height: 100%;
+    
+}
+#selector-nivel h2{
+    margin-top: 30px;
+}
+
 
 /* ------------------------------------------- */
 /* 8. PIE DE PÁGINA Y BOTÓN FAVORITOS          */

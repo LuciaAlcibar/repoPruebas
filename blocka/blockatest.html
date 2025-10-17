@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Outfit:wght@400;600;700&family=Orbitron:wght@400;500;600;700;800;900&family=Rosario:wght@400;700&family=Roboto:wght@400;600&family=Micro+5&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Outfit:wght@400;600;700&family=Orbitron:wght@400;500;600;700;800;900&family=Rosario:wght@400;700&family=Roboto:wght@400;600&family=Micro+5&family=Freckle+Face&family=Poppins&display=swap" rel="stylesheet">
 
 </head>
 <body>
@@ -211,7 +211,7 @@
 <div id="contenedor-juego">
 
     <div id="menu-principal">
-        <h1>🎮 BLOCKA</h1>
+        <h1>BLOCKA</h1>
         <p>Rota las piezas de la imagen hasta formar la imagen completa</p>
         <div class="botones-menu">
             <button class="boton boton-primario boton-principal-jugar" id="btn-jugar-inicio">Jugar</button>
@@ -220,7 +220,7 @@
     </div>
 
     <div id="instrucciones" class="oculto">
-        <h2>📖 Instrucciones</h2>
+        <h2>Instrucciones</h2>
         <ul>
             <li><strong>Objetivo:</strong> Rotar todas las piezas de la imagen hasta formar la imagen completa.</li>
             <li><strong>Click Izquierdo:</strong> Rota la pieza 90° hacia la izquierda.</li>
@@ -231,8 +231,8 @@
             <li><strong>Filtros:</strong> Las imágenes aparecen con filtros que se quitan al completar el nivel.</li>
             <li><strong>Ayudita:</strong> Si el nivel es difícil, puedes usar "Ayudita" para que una pieza se coloque correctamente. Se sumarán 5 segundos al contador.</li>
         </ul>
-        <div class="botones-menu">
-            <button class="boton boton-primario" id="btn-volver-menu-instrucciones">Volver al Menú</button>
+        <div class="botones-menu-instrucciones">
+            <button class="boton boton-secundario" id="btn-volver-menu-instrucciones">Volver al Menú</button>
         </div>
     </div>
 
@@ -257,12 +257,12 @@
         </div>
         <div id="grilla-blocka">
         </div>
-        <div id="mensaje-completado" class="oculto"> COMPLETADO</div>
+        <div id="mensaje-completado" class="oculto"> ✓</div>
     </div>
 
 
     <div id="pantalla-victoria" class="oculto">
-        <h2>🎉 ¡Nivel Completado!</h2>
+        <h2>¡Nivel Completado!</h2>
         <p>Tiempo: <span class="tiempo-victoria" id="tiempo-victoria">00:00</span></p>
         <p id="mensaje-record"></p>
         <div class="botones-menu">
@@ -273,7 +273,7 @@
     </div>
 
     <div class="card-footer">
-        <h2>Blocka: El Puzzle de Rotación</h2> 
+        <h2></h2> 
         <button class="btn-add-game" id="addToMyGamesBtn">
             Agregar a mis juegos <i class="fas fa-heart"></i>
         </button>

@@ -255,7 +255,7 @@ const juego = {
             // 🔹 Mostrar animación de "COMPLETADO"
             const mensaje = document.getElementById("mensaje-completado");
             mensaje.classList.remove("oculto");
-            setTimeout(() => mensaje.classList.add("mostrar"), 50);
+            setTimeout(() => mensaje.classList.add("mostrar"), 80);
 
             // 🔹 Ocultar animación justo antes de pasar a la pantalla de victoria
             setTimeout(() => {
