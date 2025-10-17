@@ -1,0 +1,388 @@
+/* ========================================================== */
+/* BLOCKA.CSS - ESTILOS DEDICADOS A LA INTERFAZ CENTRAL DEL JUEGO */
+/* ========================================================== */
+
+/* ------------------------------------------- */
+/* 0. VARIABLES Y UTILIDADES                   */
+/* ------------------------------------------- */
+
+/* Duplicamos variables clave para asegurar la consistencia */
+:root {
+    --color-bg-dark: #102641;
+    --color-card-bg: #1F375A;
+    --color-text-primary: #FFFFFF;
+    --color-text-secondary: #AAAAAA;
+    --color-primary-pink: #FA62A5;
+    --color-pink-hover: #FA328A;
+    --color-success-green: #69B469;
+    --color-success-green-hover: #5AA15A;
+    --font-base: 'Outfit', sans-serif;
+    --font-heading: 'Montserrat', sans-serif;
+    --transicion-rapida: all 0.3s ease-in-out;
+}
+
+/* 🔥 REGLA CLAVE: Oculta las pantallas que no deben verse al inicio */
+.oculto {
+    display: none !important;
+}
+
+/* ------------------------------------------- */
+/* 1. CONTENEDOR PRINCIPAL Y BASE DEL JUEGO    */
+/* ------------------------------------------- */
+
+/* 1. CONTENEDOR PRINCIPAL Y BASE DEL JUEGO */
+#contenedor-juego {
+    background: var(--color-card-bg);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    
+    /* 🔥 REPLICAR ANCHO MÁXIMO DEL DISEÑO ANTIGUO */
+    max-width: 800px; /* Limita el ancho en escritorio */
+    margin-left: auto; /* Centra el contenedor en la pantalla */
+    margin-right: auto; /* Centra el contenedor en la pantalla */
+    
+    width: 100%; 
+    position: relative; 
+    margin-bottom: 40px; 
+    font-family: var(--font-base);
+    color: var(--color-text-primary);
+    box-sizing: border-box; 
+}
+
+/* ------------------------------------------- */
+/* 2. ESTILOS DE MENÚS Y TÍTULOS               */
+/* ------------------------------------------- */
+
+#menu-principal {
+    text-align: center;
+}
+
+#menu-principal h1 {
+    color: var(--color-primary-pink);
+    font-size: 3em;
+    margin-bottom: 20px;
+    font-family: var(--font-heading);
+}
+
+#menu-principal p {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+#instrucciones h2,
+#selector-nivel h2 {
+    color: var(--color-primary-pink);
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: var(--font-heading);
+    font-size: 1.8em;
+}
+
+#instrucciones ul {
+    list-style-position: inside;
+    margin: 20px 0 30px;
+    line-height: 2;
+    text-align: left;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#instrucciones li {
+    margin-bottom: 5px;
+    color: var(--color-text-secondary);
+}
+
+/* ------------------------------------------- */
+/* 3. ESTILOS DE BOTONES Y ANIMACIONES         */
+/* ------------------------------------------- */
+
+.boton {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transicion-rapida);
+    font-weight: 600;
+    font-family: var(--font-base);
+}
+
+.boton-primario {
+    color: #ffffff;
+    background: linear-gradient(135deg, #e74c8c 0%, var(--color-pink-hover) 100%);
+    box-shadow: 0 4px 15px rgba(231, 76, 140, 0.4);
+}
+
+.boton-primario:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 12px 28px rgba(231, 76, 140, 0.6);
+    background: linear-gradient(135deg, var(--color-pink-hover) 0%, #e74c8c 100%);
+}
+
+.boton-principal-jugar {
+    animation: pulse 1.5s infinite alternate;
+}
+
+.boton-secundario {
+    background: var(--color-bg-dark);
+    color: white;
+    border: 1px solid var(--color-text-secondary);
+    padding: 10px 20px; /* Menos padding para controles de juego */
+    font-size: 1em;
+}
+
+.boton-secundario:hover {
+    background: var(--color-card-bg);
+    border-color: var(--color-primary-pink);
+    transform: translateY(-2px);
+}
+
+.boton-ayuda {
+    background-color: var(--color-success-green);
+    color: var(--color-bg-dark);
+    font-weight: 700;
+    padding: 10px 20px;
+    font-size: 1em;
+    transition: var(--transicion-rapida);
+}
+
+.boton-ayuda:hover {
+    background-color: var(--color-success-green-hover);
+    transform: scale(1.05);
+}
+
+.botones-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+/* ------------------------------------------- */
+/* 4. SELECTOR DE NIVEL Y TARJETAS             */
+/* ------------------------------------------- */
+
+.grilla-niveles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.tarjeta-nivel {
+    background: var(--color-bg-dark);
+    padding: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 3px solid transparent;
+    text-align: left;
+    transition: var(--transicion-rapida);
+}
+
+.tarjeta-nivel:hover {
+    border-color: var(--color-primary-pink);
+    transform: translateY(-5px);
+}
+
+.tarjeta-nivel h3 {
+    color: var(--color-primary-pink);
+    font-size: 1.5em;
+    font-family: var(--font-heading);
+    margin: 0 0 5px 0;
+}
+
+.tarjeta-nivel p {
+    color: var(--color-text-secondary);
+    margin: 5px 0;
+    font-size: 0.95em;
+}
+
+.record {
+    font-weight: 700;
+    color: var(--color-success-green);
+}
+
+/* 🔥 REGLA PARA CENTRAR EL BOTÓN "VOLVER AL MENÚ" EN EL SELECTOR DE NIVEL */
+#btn-volver-menu-selector {
+    display: block; /* Necesita ser bloque para usar margin auto */
+    margin: 30px auto 0; /* Centra horizontalmente con margen superior */
+    max-width: 250px; /* Le da un ancho fijo para que el centrado sea efectivo */
+}
+
+/* ------------------------------------------- */
+/* 5. PANTALLA DE JUEGO Y GRILLA (GRANDEZA)    */
+/* ------------------------------------------- */
+
+#pantalla-juego {
+    text-align: center;
+}
+
+#encabezado-juego {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+#info-juego h2 {
+    color: var(--color-primary-pink);
+    margin-bottom: 5px;
+    font-family: var(--font-heading);
+}
+
+#temporizador {
+    font-size: 2em;
+    color: var(--color-success-green);
+    font-weight: 800;
+    font-family: var(--font-heading);
+}
+
+#controles-juego {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+/* GRID DE PIEZAS (GRANDE) */
+/*  5. PANTALLA DE JUEGO Y GRILLA */
+#grilla-blocka {
+    display: grid;
+    
+    /* 🔥 REPLICAR GAP Y PADDING DEL DISEÑO ANTIGUO */
+    gap: 5px; 
+
+    /* Usar el max-width del diseño antiguo */
+    max-width: 600px; 
+    
+    /* Puedes mantener 95vmin si quieres que se vea más grande en móviles */
+    width: 95vmin; 
+    
+    margin: 0 auto 30px;
+    background: var(--color-bg-dark);
+    
+    /* Replicar padding del diseño antiguo */
+    padding: 10px; 
+    
+    border-radius: 10px;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+/* 🔥 2. MEDIA QUERY: AJUSTE PARA PANTALLAS PEQUEÑAS (Móvil/Tablet) */
+/* Aplicar un gap menor cuando el ancho de la ventana es de 600px o menos */
+@media (max-width: 600px) {
+    #grilla-blocka {
+        gap: 2px; /* Piezas más juntas en pantallas compactas */
+        padding: 5px; /* Reducir también el padding si es necesario */
+    }
+}
+
+/* MODIFICAR ESTO en la Sección 5 de blocka.css */
+.pieza-blocka {
+    width: 100%;
+    aspect-ratio: 1;
+    cursor: pointer;
+    
+    /* 🔥 TRANSICIÓN SUAVE Y EFECTO DE ROTACIÓN */
+    transition: transform 0.3s ease-out, border-color var(--transicion-rapida); 
+    
+    /* Nota: Usando 'transform 0.3s' en lugar de 0.4s para que coincida con tu archivo previo */
+    border: 2px solid var(--color-bg-dark); /* Usar el color de fondo de la grilla */
+    position: relative;
+    overflow: hidden;
+    line-height: 0;
+}
+
+/* 🔥 EFECTO AL PASAR EL RATÓN: Borde Rosa (Coincide con la variable --color-primary-pink) */
+.pieza-blocka:hover {
+    border-color: var(--color-primary-pink); 
+}
+
+/* NUEVA REGLA: Pieza-fija (Sección 5) */
+.pieza-blocka.pieza-fija {
+    /* Usar el color verde de éxito (similar a #4ecca3 de tu archivo) */
+    border-color: var(--color-success-green); 
+    border-width: 3px;
+    cursor: not-allowed;
+    opacity: 0.9;
+}
+
+/* ------------------------------------------- */
+/* 6. PANTALLA DE VICTORIA                     */
+/* ------------------------------------------- */
+
+#pantalla-victoria h2 {
+    color: var(--color-success-green);
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    font-family: var(--font-heading);
+}
+
+#pantalla-victoria p {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.tiempo-victoria {
+    color: var(--color-primary-pink);
+    font-weight: 800;
+    font-size: 1.5em;
+}
+
+/* ------------------------------------------- */
+/* 7. ANIMACIONES (PULSO PARA BOTÓN JUGAR)     */
+/* ------------------------------------------- */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 10px 0px rgba(231, 76, 140, 0.4);
+    background: linear-gradient(135deg, #e74c8c 0%, #f06292 100%);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 0 30px 10px rgba(231, 76, 140, 0.85);
+    background: linear-gradient(135deg, #f06292 0%, #e74c8c 100%);
+  }
+}
+
+/* ------------------------------------------- */
+/* 7. ANIMACIÓN DE VICTORIA (COMPLETADO)       */
+/* ------------------------------------------- */
+
+/* NUEVA SECCIÓN: Estilos para el mensaje de victoria in-game */
+#mensaje-completado {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* Posición inicial: más pequeño y movido */
+    transform: translate(-50%, -50%) scale(0.5); 
+    
+    color: var(--color-success-green); /* Color del texto (verde) */
+    font-size: 3em;
+    font-weight: bold;
+    font-family: var(--font-heading);
+
+    /* Efecto de resplandor verde (coincide con tu diseño original) */
+    text-shadow: 0 0 20px var(--color-success-green), 0 0 40px var(--color-success-green); 
+    
+    opacity: 0;
+    /* Transición que controla la animación de entrada/salida */
+    transition: all 0.8s ease-out; 
+    
+    pointer-events: none; /* Asegura que no bloquee los clics */
+    z-index: 100;
+}
+
+/* Estado FINAL de la animación */
+#mensaje-completado.mostrar {
+    opacity: 1;
+    /* Estado final: centrado y ligeramente más grande */
+    transform: translate(-50%, -50%) scale(1.1); 
+}
+
