@@ -1,6 +1,6 @@
 /* ========================================================== */
 /* BLOCKA.CSS - ESTILOS FINALES Y CONSOLIDADOS */
-/* DISEÑO: Tarjeta Fija (card-footer DENTRO de #contenedor-juego) */
+/* AJUSTE: Diseño de Instrucciones 3x2 (6 imágenes) - TAMAÑOS FINALIZADOS */
 /* ========================================================== */
 
 /* ------------------------------------------- */
@@ -41,8 +41,8 @@
 /* ------------------------------------------- */
 
 #blocka-wrapper {
-    /* CRÍTICO: Define el ancho y centra el grupo de elementos */
-    width: 1000px;
+    /* AJUSTADO: Ancho total de la aplicación para el diseño 3x2 + texto. */
+    width: 1100px;
     margin: 0 auto 20px; 
 }
 
@@ -85,28 +85,248 @@
     line-height: 1.6;
 }
 
-#instrucciones h2,
-#selector-nivel h2 {
-    color: var(--color-primary-pink);
-    margin-bottom: 10px;
-    text-align: center;
-    font-family: var(--font-heading);
-    font-size: 1.8em;
-}
-#instrucciones ul {
-    list-style-position: inside;
-    margin: 10px 0 30px;
-    line-height: 1.5;
-    text-align: left;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+
+/* =============================================== */
+/* AJUSTES PARA #INSTRUCCIONES (ESTRUCTURA SIMPLE) */
+/* =============================================== */
+
+/* 1. Contenedor principal: Centrado y Espaciado Vertical */
+#instrucciones {
+    display: flex;
+    flex-direction: column;
+    /* 🔥 CLAVE DE CENTRADO: space-evenly distribuye el espacio verticalmente */
+    justify-content: space-evenly;
+    align-items: center;       
+    height: 100%;              
+    text-align: center;        
+    box-sizing: border-box;
+    /* Espacio mínimo entre los bloques principales */
+    gap: 8px; 
+    padding: 20px; 
 }
 
-#instrucciones li {
-    margin-bottom: 5px;
-    color: var(--color-text-secondary);
+/* 2. Títulos (h2, h3, h4) y Párrafos */
+
+#instrucciones h2 {
+    /* Título principal "Instrucciones" */
+    margin-bottom: 5px; 
+    font-size: 1.8em;
+    color: var(--color-primary-pink);
+    font-family: var(--font-heading);
 }
+
+#instrucciones h3 {
+    /* Objetivo: Rotar todas las piezas... */
+    margin: 5px 0 10px 0; /* Espacio arriba y más debajo para separar del mouse */
+    font-size: 1.2em;
+    font-weight: 400;
+    color: var(--color-text-primary);
+    font-family: var(--font-base); 
+    line-height: 1.3;
+}
+
+/* 3. Contenedor de la Imagen del Mouse (TAMAÑO Y ESPACIADO) */
+.contenedor-mouse-control {
+    text-align: center; 
+    /* Margen: poco arriba, más abajo para separar de los párrafos de control */
+    margin: 5px auto 15px auto; 
+    /* 🔥 TAMAÑO FINAL: 90px (Ajusta este valor si quieres un tamaño diferente) */
+    max-width: 90px; 
+    padding: 5px; 
+}
+.contenedor-mouse-control .img-esquema {
+    /* El nombre de la clase de la imagen según tu HTML */
+    max-width: 100%; 
+    height: auto;
+    border-radius: 6px;
+    border: 1px solid var(--color-text-secondary);
+}
+
+/* 4. Estilos para los párrafos de Clicks */
+/* (Asegúrate de que tus párrafos de click están bien formados: 
+   <p><strong>Click Izquierdo:</strong> Rota...</p>
+   porque en tu ejemplo tenías mal la etiqueta </strong>) */
+#instrucciones p {
+    text-align: center; 
+    line-height: 1.4;
+    font-size: 1em;
+    color: var(--color-text-primary);
+    /* Espacio mínimo entre los párrafos de clicks */
+    margin: 3px 0; 
+    font-family: var(--font-base);
+}
+
+/* 5. Título de Ayuda (h4) */
+#instrucciones h4 {
+    /* Ayuda: Si el nivel es difícil... */
+    margin: 25px 0 25px 0; /* Mucho espacio para separarlo de los otros bloques */
+    font-size: 1.05em;
+    font-weight: 400; /* Asegurar que no sea demasiado negrita si no lo quieres */
+    color: var(--color-text-secondary);
+    max-width: 500px;
+    padding: 0 10px; /* Un poco de padding horizontal si es necesario */
+}
+
+/* 6. Contenedor del Botón */
+.botones-menu-instrucciones {
+    /* Aseguramos suficiente espacio sobre el botón */
+    margin-top: 15px; 
+}
+
+
+/* ------------------------------------------- */
+/* 2.1. ESTILOS DE INSTRUCCIONES (Tarjeta Única) */
+/* ------------------------------------------- */
+
+/* 🟢 El contenedor principal de la información se convierte en la tarjeta (Game-info-details) */
+.game-info-details.card-instrucciones-completa {
+    /* Estética de tarjeta */
+    background: var(--color-card-bg); 
+    border: 3px solid var(--color-primary-pink); 
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    padding: 30px;
+    margin-top: 20px; 
+    
+    /* 🟢 Configuración de Flexbox para las dos columnas */
+    display: flex;
+    gap: 40px; 
+    /* Ancho de la tarjeta para el diseño 3x2 + texto. */
+    max-width: 1100px; 
+    width: 100%; 
+    
+    text-align: left;
+    color: var(--color-text-secondary);
+    box-sizing: border-box;
+}
+
+/* Columna de Texto/Info (Características y Controles) */
+.info-wrapper {
+    flex: 1; 
+    min-width: 350px; 
+    max-width: 450px; 
+}
+
+/* Columna de Imágenes (Las 6 miniaturas) */
+.imagenes-wrapper {
+    flex: 2; 
+    display: grid;
+    /* CAMBIO CRÍTICO: 3 COLUMNAS IGUALES (Diseño 3x2) */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 15px; 
+    align-content: start; 
+    justify-items: center; 
+    min-width: 500px; 
+}
+
+/* 🟢 Imágenes de esquema (Fila 1) */
+.imagenes-wrapper .img-esquema {
+    width: 100%;
+    /* Altura fija ligeramente reducida para un "contorno" más fino */
+    height: 135px; 
+    object-fit: contain; 
+    background-color: var(--color-bg-dark); 
+
+    display: block;
+    border-radius: 6px;
+    border: 1px solid var(--color-text-secondary); 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+    /* 🛑 IMPORTANTE: Quitamos la transición 'transform' para que no haya efecto hover */
+    transition: transform 0.2s ease; 
+    
+    max-width: 280px; 
+}
+
+/* 🟢 Imágenes de puzzle (Fila 2) */
+.imagenes-wrapper .img-puzzle-ejemplo {
+    width: 100%;
+    height: auto; 
+    display: block;
+    border-radius: 6px;
+    border: 1px solid var(--color-text-secondary); 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+    /* 🛑 IMPORTANTE: Quitamos la transición 'transform' para que no haya efecto hover */
+    transition: transform 0.2s ease;
+    
+    max-width: 160px; 
+    margin-top: 15px; 
+}
+
+/* 🛑 REGLA ELIMINADA: Ya no se escala al pasar el ratón */
+/* .imagenes-wrapper img:hover {
+    transform: scale(1.05);
+} */
+
+/* Estilos de texto específicos en la tarjeta */
+/* AJUSTE CLAVE 1: Título a la izquierda */
+.info-wrapper h3 {
+    color: var(--color-primary-pink);
+    font-size: 2em;
+    text-align: left; /* Título alineado a la izquierda */
+    margin-top: 0;
+}
+.info-wrapper h4 {
+    color: var(--color-text-primary);
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+/* AJUSTE CLAVE 2: Fuente diferente para párrafos y listas (Usamos la fuente base: 'Outfit') */
+.info-wrapper p,
+.info-wrapper li {
+    font-family: var(--font-base); 
+}
+
+.info-wrapper ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+.info-wrapper li {
+    color: var(--color-text-primary);
+    margin-bottom: 8px;
+}
+
+/* 🟢 RESPONSIVE: Apilar las columnas en pantallas más pequeñas */
+@media (max-width: 1250px) { 
+    .game-info-details.card-instrucciones-completa {
+        flex-direction: column; 
+        gap: 30px;
+        max-width: 700px; 
+        padding: 20px;
+    }
+    .game-info-details .imagenes-wrapper {
+        min-width: auto;
+        /* El auto-fit se encargará de ajustarlas a 2 o 3 columnas */
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
+    }
+    .imagenes-wrapper .img-esquema {
+        height: 120px; /* Reducir altura en responsive */
+        max-width: 220px; /* Mantener un buen tamaño */
+        margin-top: 0; 
+    }
+    .imagenes-wrapper .img-puzzle-ejemplo {
+        max-width: 160px; /* Reducir tamaño para tablet */
+        margin-top: 0;
+    }
+}
+@media (max-width: 600px) {
+    .game-info-details.card-instrucciones-completa {
+        padding: 15px;
+        max-width: 90%;
+    }
+    .imagenes-wrapper {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en móviles muy pequeños */
+        gap: 8px;
+    }
+    .imagenes-wrapper .img-esquema {
+        height: 90px;
+        max-width: 120px;
+    }
+    .imagenes-wrapper .img-puzzle-ejemplo {
+        max-width: 100px;
+    }
+}
+
 
 /* ------------------------------------------- */
 /* 3. ESTILOS DE BOTONES Y ANIMACIONES         */
@@ -514,6 +734,10 @@
     height: 100%;              
     text-align: center;        
     box-sizing: border-box;
+    /* 🔥 AJUSTE CLAVE 1: Reducir el espacio entre elementos (título, mouse, lista) */
+    gap: 5px; 
+    padding: 20px; /* Asegura que no se pegue a los bordes */
+
 }
 
 #menu-principal{
@@ -633,5 +857,8 @@
     color: #ffffff;
     box-shadow: 0 0 15px var(--color-added-green);
 }
+
+
+
 
 

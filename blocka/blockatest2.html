@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/barras.css">  
     <link rel="stylesheet" href="css/juego.css">
     <link rel="stylesheet" href="css/footer.css">    
-    <link rel="stylesheet" href="blockatest.css"> 
+    <link rel="stylesheet" href="blockatest2.css"> 
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -222,16 +222,16 @@
 
     <div id="instrucciones" class="oculto">
         <h2>Instrucciones</h2>
-        <ul>
-            <li><strong>Objetivo:</strong> Rotar todas las piezas de la imagen hasta formar la imagen completa.</li>
-            <li><strong>Click Izquierdo:</strong> Rota la pieza 90° hacia la izquierda.</li>
-            <li><strong>Click Derecho:</strong> Rota la pieza 90° hacia la derecha.</li>
-            <li><strong>Niveles:</strong> El juego tiene 3 niveles con diferentes filtros aplicados.</li>
-            <li><strong>Temporizador:</strong> El tiempo comienza al iniciar el nivel y se detiene al completarlo.</li>
-            <li><strong>Récord:</strong> Tu mejor tiempo se guarda para cada nivel.</li>
-            <li><strong>Filtros:</strong> Las imágenes aparecen con filtros para mayor dificultad.</li>
-            <li><strong>Ayuda:</strong> Si el nivel es difícil, puedes usar "Ayuda" para que una pieza se coloque correctamente. Se sumarán 5 segundos al contador.</li>
-        </ul>
+        
+            <h3>Objetivo: Rotar todas las piezas de la imagen hasta formar la imagen completa.</h3>
+            <div class="contenedor-mouse-control">
+                <img src="img/prueba2.png" alt="Instrucciones Mouse" class="img-esquema">
+            </div>
+                <p><strong>Click Izquierdo:</strong> Rota la pieza 90° hacia la izquierda.</p>
+                <p><strong>Click Derecho:</strong> Rota la pieza 90° hacia la derecha.</p>
+        
+            <h4>Ayuda: Si el nivel es difícil, puedes usar "Ayuda" para que una pieza se coloque correctamente. Se sumarán 5 segundos al contador.</h4>
+
         <div class="botones-menu-instrucciones">
             <button class="boton boton-secundario" id="btn-volver-menu-instrucciones">Volver al Menú</button>
         </div>
@@ -285,32 +285,33 @@
 </div>
 
 
-    <section class="game-info-details">
-        <div class="info-section controls">
-            <h3>Acerca de Blocka</h3>
-            <p> Blocka es un desafiante puzzle de rotación que pondrá a prueba tu visión espacial. Inspirado en los juegos de mosaicos y puzzles de deslizamiento, el objetivo es restaurar la imagen original rotando las piezas.</p><br>
+  <section class="game-info-details card-instrucciones-completa">
+    
+    <div class="info-wrapper">
+        <h3>Acerca de Blocka</h3>
+        <p>Blocka es un desafiante puzzle de rotación que pondrá a prueba tu visión espacial. Inspirado en los juegos de mosaicos y puzzles de deslizamiento, el objetivo es restaurar la imagen original rotando las piezas.</p><br>
+        
+        <h4>Características:</h4>           
+        <ul>
+            <li>Múltiples niveles de dificultad y filtros de cuadrícula.</li>
+            <li>Piezas con rotación fija para aumentar la dificultad.</li>
+            <li>Sistema de temporizador y récord de tiempo por nivel.</li>
+        </ul>
+    </div>
+    
+    <div class="imagenes-wrapper">
+        
+        <img src="img/imagenesR1.png" alt="Esquema Menú Principal" class="img-esquema">
+        <img src="img/imagenesR2.png" alt="Esquema Pantalla de Juego" class="img-esquema">
+        <img src="img/imageneesR4.png" alt="Esquema Extra" class="img-esquema">
 
-            <h4>Características:</h4>           
-            <ul>
-                <li>Múltiples niveles de dificultad y tamaños de cuadrícula.</li>
-                <li>Piezas con rotación fija para aumentar la dificultad.</li>
-                <li>Sistema de récord de tiempo por nivel.</li>
-            </ul>
-        </div>
-
-        <div class="info-section controls">
-            <h3>Controles:</h3>
-            <ul>
-                <li>Clic izquierdo sobre una ficha: seleccionarla.</li>
-                <li>Clic izquierdo sobre un espacio vacío válido: mover o saltar la ficha.</li>
-            </ul>
-            <div class="controls">
-                
-                 <img src="img/Dibujo sin título (6).png" alt="Icono de Control de Mouse" class="control-image">
-                
-            </div>
-        </div>
-    </section>
+        <img src="img/imagenesR5.png" alt="Pieza de Puzzle 1" class="img-puzzle-ejemplo">
+        <img src="img/imagenesR7.png" alt="Pieza de Puzzle 2" class="img-puzzle-ejemplo">
+        <img src="img/imagenesR8.png" alt="Pieza de Puzzle 4" class="img-puzzle-ejemplo">
+        
+    </div>
+    
+</section>
 
   <section class="comments-section">
     <h2>Comentarios</h2>
@@ -582,3 +583,9 @@
 </body>
 </html>
 
+<!-- TEXTOS INSTRUCCIONES REVISAR QUE USAR -->
+
+    <!-- <li><strong>Niveles:</strong> El juego tiene 3 niveles con diferentes filtros aplicados.</li>
+            <li><strong>Temporizador:</strong> El tiempo comienza al iniciar el nivel y se detiene al completarlo.</li>
+            <li><strong>Récord:</strong> Tu mejor tiempo se guarda para cada nivel.</li>
+            <li><strong>Filtros:</strong> Las imágenes aparecen con filtros para mayor dificultad.</li> -->
