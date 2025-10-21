@@ -100,8 +100,8 @@
     height: 100%;              
     text-align: center;        
     box-sizing: border-box;
-    /* Espacio mínimo entre los bloques principales */
-    gap: 8px; 
+    /* 🔴 AJUSTE: Reducir el espacio entre los bloques principales */
+    gap: 0px; 
     padding: 20px; 
 }
 
@@ -117,7 +117,8 @@
 
 #instrucciones h3 {
     /* Objetivo: Rotar todas las piezas... */
-    margin: 5px 0 10px 0; /* Espacio arriba y más debajo para separar del mouse */
+    /* 🔴 AJUSTE: Reducido de 10px a 5px */
+    margin: 5px 0 5px 0; 
     font-size: 1.2em;
     font-weight: 400;
     color: var(--color-text-primary);
@@ -128,10 +129,10 @@
 /* 3. Contenedor de la Imagen del Mouse (TAMAÑO Y ESPACIADO) */
 .contenedor-mouse-control {
     text-align: center; 
-    /* Margen: poco arriba, más abajo para separar de los párrafos de control */
-    margin: 5px auto 15px auto; 
+    /* 🔴 AJUSTE: Reducido de 15px a 10px */
+    margin: 5px auto 10px auto; 
     /* 🔥 TAMAÑO FINAL: 90px (Ajusta este valor si quieres un tamaño diferente) */
-    max-width: 90px; 
+    max-width: 150px; 
     padding: 5px; 
 }
 .contenedor-mouse-control .img-esquema {
@@ -143,34 +144,33 @@
 }
 
 /* 4. Estilos para los párrafos de Clicks */
-/* (Asegúrate de que tus párrafos de click están bien formados: 
-   <p><strong>Click Izquierdo:</strong> Rota...</p>
-   porque en tu ejemplo tenías mal la etiqueta </strong>) */
 #instrucciones p {
     text-align: center; 
     line-height: 1.4;
     font-size: 1em;
     color: var(--color-text-primary);
-    /* Espacio mínimo entre los párrafos de clicks */
-    margin: 3px 0; 
+    /* 🔴 AJUSTE: Reducido de 3px a 2px */
+    margin: 2px 0; 
     font-family: var(--font-base);
 }
 
 /* 5. Título de Ayuda (h4) */
 #instrucciones h4 {
     /* Ayuda: Si el nivel es difícil... */
-    margin: 25px 0 25px 0; /* Mucho espacio para separarlo de los otros bloques */
+    /* 🔴 AJUSTE: Reducido de 25px a 15px */
+    margin: 15px 0 15px 0; 
     font-size: 1.05em;
-    font-weight: 400; /* Asegurar que no sea demasiado negrita si no lo quieres */
+    font-weight: 400; 
     color: var(--color-text-secondary);
     max-width: 500px;
-    padding: 0 10px; /* Un poco de padding horizontal si es necesario */
+    padding: 0 10px; 
 }
 
 /* 6. Contenedor del Botón */
 .botones-menu-instrucciones {
     /* Aseguramos suficiente espacio sobre el botón */
-    margin-top: 15px; 
+    /* 🔴 AJUSTE: Reducido de 15px a 10px */
+    margin-top: 10px; 
 }
 
 
@@ -251,11 +251,6 @@
     max-width: 160px; 
     margin-top: 15px; 
 }
-
-/* 🛑 REGLA ELIMINADA: Ya no se escala al pasar el ratón */
-/* .imagenes-wrapper img:hover {
-    transform: scale(1.05);
-} */
 
 /* Estilos de texto específicos en la tarjeta */
 /* AJUSTE CLAVE 1: Título a la izquierda */
@@ -351,9 +346,17 @@
 }
 
 .boton-primario:hover {
+    /* Efecto de levantamiento y crecimiento sutil */
     transform: translateY(-4px) scale(1.02);
-    box-shadow: 0 12px 28px rgba(231, 76, 140, 0.6);
+    
+    /* Restaurar el box-shadow llamativo para el brillo/sombra */
+    box-shadow: 0 12px 28px rgba(231, 76, 140, 0.6); 
+    
+    /* Restaurar el cambio de degradado de color */
     background: linear-gradient(135deg, var(--color-pink-hover) 0%, #e74c8c 100%);
+    
+    /* 🔥 APLICACIÓN CLAVE: Iniciar la animación 'pulse' en el hover */
+    animation: pulse 1.5s infinite alternate;
 }
 
 .boton-principal-jugar {
@@ -657,14 +660,28 @@
     font-weight: 800;
     font-size: 1.4em;
 }
+
 #pantalla-victoria .botones-menu{
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    max-width: 280px;
+    
+  /* 🟢 PROPIEDAD CLAVE: Define un espaciado uniforme entre todos los hijos */
+    gap: 15px;
+    
+    /* 🔴 CAMBIO CLAVE 2: Reducir el ancho máximo para achicar los botones */
+    max-width: 250px; /* Reducido de 280px a 250px */
+    
     margin: 0 auto;
-    margin-top: 50px;
+    /* 🔴 AJUSTE: Aumentar el margen superior */
+    margin-top: 50px; 
 }
+
+/* Estilo para el botón de Siguiente Nivel (Primer botón) */
+#pantalla-victoria .botones-menu > .boton-secundario:first-child {
+    /* 🔴 CAMBIO CLAVE 3: Separación entre el primer y segundo botón */
+    margin-bottom: 25px; /* Crea una separación mayor a la que era el 'gap: 20px' */
+}
+
 
 /* ------------------------------------------- */
 /* 7. ANIMACIONES Y KEYFRAMES (No modificada)  */
@@ -690,6 +707,40 @@
     100% {
         box-shadow: 0 0 15px var(--color-added-green), 0 0 5px rgba(255, 255, 255, 0.7);
     }
+}
+
+@keyframes brillo-pink {
+    0% {
+        box-shadow: 0 0 10px rgba(250, 98, 165, 0.4);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(250, 98, 165, 0.8), 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+}
+
+@keyframes brillo-pink {
+    0% {
+        /* Brillo inicial (más pequeño y menos intenso) */
+        box-shadow: 0 0 5px rgba(250, 98, 165, 0.5);
+    }
+    50% {
+        /* Pico de brillo (más grande y más intenso) */
+        /* Sombra interior para simular que el centro es más brillante */
+        box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.4), 
+                    0 0 25px rgba(250, 98, 165, 1), /* Brillo Rosa Intenso */
+                    0 0 40px rgba(255, 255, 255, 0.6); /* Halo Blanco/Suave */
+        /* Quitamos el transform: scale() que causa el cambio de tamaño del botón. */
+    }
+    100% {
+        /* Vuelve a un brillo intermedio (más grande que el 0% pero más suave que el 50%) */
+        box-shadow: 0 0 15px rgba(250, 98, 165, 0.6);
+    }
+}
+
+
+#pantalla-victoria .botones-menu > .boton-secundario:first-child {
+    margin-bottom: 25px; 
+    animation: none;
 }
 
 #mensaje-completado {
@@ -721,7 +772,7 @@
 }
 
 /* =============================================== */
-/* CENTRADO PERFECTO DE CONTENIDO DENTRO DEL JUEGO (No modificada) */
+/* CENTRADO PERFECTO DE CONTENIDO DENTRO DEL JUEGO (Modificado para instrucciones) */
 /* =============================================== */
 
 /* Aplica a cualquier pantalla dentro del contenedor */
@@ -735,7 +786,7 @@
     text-align: center;        
     box-sizing: border-box;
     /* 🔥 AJUSTE CLAVE 1: Reducir el espacio entre elementos (título, mouse, lista) */
-    gap: 5px; 
+    gap: 0px; /* Reducido para compactar */
     padding: 20px; /* Asegura que no se pegue a los bordes */
 
 }
